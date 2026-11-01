@@ -2,7 +2,8 @@ name: Deploy VitePress to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -11,26 +12,49 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: github-pages
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
+          version: 10.34.8
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - uses: actions/configure-pages@v4
-      - run: npm install --no-audit --no-fund
-      - run: npm run test
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+
+      # Generate a lockfile during CI until pnpm-lock.yaml can be committed.
+      # Switch to --frozen-lockfile when the lockfile is in the repository.
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Validate project
+        run: pnpm test
+
+      - name: Build VitePress
+        run: pnpm build
+
+      - name: Verify Pages artifact
+        run: test -s docs/.vitepress/dist/index.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -38,5 +62,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
