@@ -29,7 +29,7 @@ VitePressのdefault themeを**拡張**。Nav、Sidebar、検索、Markdownレン
 ## 公開
 
 - `base: '/Sololive-Design/'`。
-- Actionsで`npm install && npm run test && npm run build`。
+- Actionsで`pnpm install --no-frozen-lockfile && pnpm test && pnpm build`。現時点はlockfileが未生成のため初回は非frozenで実行。lockfileを作成してコミット後に`--frozen-lockfile`へ変更。
 - 成果物は`docs/.vitepress/dist`。
 - [Settings → Pages](https://github.com/Hoshock/Sololive-Design/settings/pages) → **Source: GitHub Actions** に変更する。branch / rootではない。
 - 公開URLは`https://hoshock.github.io/Sololive-Design/`。
