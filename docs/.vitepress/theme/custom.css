@@ -1,0 +1,10 @@
+:root {
+  --vp-c-brand-1: #a979e9;
+  --vp-c-brand-2: #9168d1;
+  --vp-c-brand-3: #7250ac;
+  --vp-c-brand-soft: #aa85f222;
+}
+.VPPage { padding-bottom: 0 !important; }
+.VPPage .VPContent { padding: 0 !important; }
+.VPPage .container, .VPPage .content, .VPPage .content-container { max-width: none !important; }
+.VPPage .vp-doc { padding: 0; }
