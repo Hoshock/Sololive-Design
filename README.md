@@ -10,11 +10,15 @@
 ## 開発
 
 ```bash
-npm install
-npm run dev
-npm run test
-npm run build
+corepack enable
+pnpm install
+pnpm dev
+pnpm test
+pnpm build
+pnpm preview
 ```
+
+パッケージ管理には **pnpm 10.34.8** を使用（`package.json` の `packageManager` に指定）。今回の実行環境ではnpmレジストリへ接続できず、`pnpm-lock.yaml` はまだ生成できていません。初回は `pnpm install` で生成してコミットしてください。それまではCIが `pnpm install --no-frozen-lockfile` を使用します。
 
 ## GitHub Pages
 
