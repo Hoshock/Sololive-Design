@@ -55,7 +55,7 @@ const running = computed(() => systemAllowsMotion.value && motion.value)
         <div class="stage" :class="'stage-'+current.id" aria-live="polite">
           <div class="stage-grid" aria-hidden="true"></div><div class="stage-ring stage-ring-1" aria-hidden="true"></div><div class="stage-ring stage-ring-2" aria-hidden="true"></div><div class="stage-decoration" aria-hidden="true">{{ current.id === 'bloom' ? '✿' : current.id === 'nocturne' ? '✦' : '✳' }}</div>
           <div class="stage-top"><span>DESIGN STUDY / {{ current.no }}</span><span>✳</span></div>
-          <div class="stage-main" :key="current.id"><p>A FICTIONAL DIGITAL CONCERT</p><h3>{{ current.headline }}</h3><h4>{{ current.ja }}</h4><span class="stage-button">ENTER THE EXPERIENCE ↗</span></div>
+          <div class="stage-main" :key="current.id"><p>A FICTIONAL DIGITAL CONCERT</p><h3>{{ current.headline }}</h3><h4>{{ current.ja }}</h4><a class="stage-button" href="./design/principles.html">EXPLORE DESIGN NOTES ↗</a></div>
           <div class="stage-bottom"><span>{{ current.label }}</span><span>ORIGINAL DESIGN / 2026</span></div>
         </div>
       </div>
