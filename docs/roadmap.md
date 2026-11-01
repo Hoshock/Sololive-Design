@@ -6,7 +6,8 @@
 - [x] オリジナルCSSアートによるBLOOM / NOCTURNE / PULSE
 - [x] 3テーマ切替・モーション停止・Reduced Motion
 - [x] GitHub Actionsデプロイ定義
-- [ ] GitHub Settings → PagesのSourceをGitHub Actionsへ変更
+- [ ] GitHub Settings → PagesのSourceをGitHub Actionsへ変更（設定状況は外部から未確認）
+- [ ] pnpm installで生成したpnpm-lock.yamlをコミットし、CIをfrozen-lockfileへ移行
 - [ ] Actionsのビルド結果と公開URLを検証
 - [ ] 実機モバイル・アクセシビリティ評価
 
