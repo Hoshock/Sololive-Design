@@ -6,6 +6,11 @@ export default defineConfig({
   description: 'ホロライブのソロライブ特設サイトから学ぶ、非公式のWebデザイン研究室。',
   base: '/Sololive-Design/',
   lastUpdated: true,
+  head: [
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap' }],
+  ],
   themeConfig: {
     siteTitle: 'SOLO/LIVE LAB',
     search: { provider: 'local' },
