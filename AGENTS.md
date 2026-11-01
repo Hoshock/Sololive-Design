@@ -42,4 +42,4 @@ Sololive-Designは、ソロライブ特設サイトの非公式デザイン研�
 
 ## Validation
 
-`npm install && npm run test && npm run build`。スマホ・キーボード・reduced-motion・3テーマの切替・GitHub Pagesの公開状態を確認。この依頼においては`main`への直接コミットが明示されている。
+`corepack enable && pnpm install && pnpm test && pnpm build`。パッケージ管理にはpnpmだけを使い、npm/yarnのロックファイルは作らない。スマホ・キーボード・reduced-motion・3テーマの切替・GitHub Pagesの公開状態を確認。この依頼においては`main`への直接コミットが明示されている。
