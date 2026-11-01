@@ -15,3 +15,9 @@ for (const token of ['BLOOM','NOCTURNE','PULSE','prefers-reduced-motion','aria-p
   assert.ok(c.includes(token), 'Missing: ' + token)
 }
 console.log('Smoke checks passed.')
+
+const pkg = JSON.parse(readFileSync('package.json', 'utf8'))
+assert.equal(pkg.packageManager, 'pnpm@10.34.8', 'Use pnpm exclusively')
+const deploy = readFileSync('.github/workflows/deploy.yml', 'utf8')
+assert.ok(deploy.includes('pnpm install'), 'CI must use pnpm')
+assert.ok(deploy.includes('pnpm build'), 'CI build must use pnpm')
